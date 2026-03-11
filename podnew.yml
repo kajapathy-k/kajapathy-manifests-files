@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-flower-pod
+  namespace: kajapathy-ns
+  labels:
+    app: my-flower
+spec:
+  containers:
+    - name: my-flower-container
+      image: kajapathyk/my-flower:v1.1.0
+      ports:
+        - containerPort: 3015
+
+
