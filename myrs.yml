@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-flower-rs
+  namespace: kajapathy-ns
+  labels:
+    app: my-flower1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flower
+  template:
+    metadata:
+      labels:
+        app: flower
+    spec:
+      containers:
+        - name: my-flower-container-rs
+          image: kajapathyk/my-flower:v1.1.0
+          ports:
+            - containerPort: 3015
