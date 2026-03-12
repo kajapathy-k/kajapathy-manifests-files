@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ey-cart-deployment
+  namespace: kajapathy-ns
+  labels:
+    app: cart
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: flipkart-app-web-container
+        image: muralisocial123/flipkart-app-web:v1.1.0
+        ports:
+        - containerPort: 80
