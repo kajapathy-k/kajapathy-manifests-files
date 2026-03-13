@@ -28,3 +28,18 @@ spec:
         ports:
         - containerPort: 3000
 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fitness-app-deployment-svc
+  namespace: kajapathy-ns
+spec:
+  selector:
+    app: fitness-app
+  ports:
+    - port: 3001 # It is a service port number, we are using to expose the application to the internet
+      targetPort: 3000
+      protocol: TCP
+  type: ClusterIP
+
