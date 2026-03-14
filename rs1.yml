@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ey-cart-rs
+  namespace: kajapathy-ns
+  labels:
+    app: cart
+spec: # It defines the behaviour of the ReplicaSet
+  replicas: 3
+  selector: # It defines how the ReplicaSet finds which Pods to manage
+    matchLabels:
+      app: web
+  template: # It contains the pod definition
+    metadata:
+      labels:
+        app: web
+    spec: # It contains the container definition
+      containers:
+        - name: flipkart-app-web-container
+          image: muralisocial123/flipkart-app-web:v1.1.0
+          ports:
+            - containerPort: 80
