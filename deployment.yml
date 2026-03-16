@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ey-cart-deployment
+  namespace: kajapathy-ns
   labels:
     app: ey-cart
 spec:
