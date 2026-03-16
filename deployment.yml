@@ -27,3 +27,10 @@ spec:
         image: muralisocial123/ey-cart:v1.1.0
         ports:
         - containerPort: 3000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
